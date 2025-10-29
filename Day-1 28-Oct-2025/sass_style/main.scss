@@ -71,11 +71,16 @@ main section{
     width:657px;
 }
 
+
 .banner-text > div{
     height: 152px;
     width: 100%;
     font-size: 60px;
     font-weight: 600;
+}
+
+.banner-text div:first-child p:last-child{
+    color:$primary-color;
 }
 
 .banner-text > div:last-child{

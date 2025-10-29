@@ -1,0 +1,569 @@
+@import "partial_file/variable";
+@import "partial_file/mixin";
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: $font-style;
+    border:2px solid red;
+    overflow: scroll;
+
+}
+
+header{
+    padding:$padding-top-bottom $padding-left-right;
+    @include flex-center;
+    gap:166px;
+    background-color: $bg-color;
+}
+
+header nav{
+    height:24px;
+    width: 588px;
+}
+
+header nav ul{
+    @include flex-center;
+    list-style: none;
+}
+
+.btn-signup{
+    height: 40px;
+    width: 91px;
+    @include btn-primary;
+}
+
+.btn-login{
+    height: 40px;
+    width: 91px;
+    border:none;
+    font-size: 15px;
+    color:$primary-color;
+    background-color:transparent;
+}
+
+main section{
+    margin-bottom:42px;
+}
+.banner{
+    padding:$banner-p-t-b $banner-p-l-r;
+    // @include flex-banner;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    gap:104px;
+    background-color: $bg-color;
+}
+.banner-text{
+    height:276px;
+    width:657px;
+}
+
+.banner-text > div{
+    height: 152px;
+    width: 100%;
+    font-size: 60px;
+    font-weight: 600;
+}
+
+.banner-text > div:last-child{
+    color:$primary-color;
+}
+
+.banner-text > p {
+    height: 24px;
+    width: 100%;
+    @include disable-font
+
+}
+
+.register-btn{
+    @include btn-primary;
+    height: 52px;
+    width: 128px;
+    font-size:16px;
+    margin-top:32px;
+}
+
+#banner_img{
+    height:407px;
+    width:391px;
+}
+
+.clients{
+    height: auto;
+    width: 100%;
+    padding:0px $banner-p-t-b;
+    @include flex-col-center;
+}
+
+.clients-heading{
+    height: 70px;
+    width: 1110px;
+    @include flex-col-center;
+}
+
+.clients-heading p:first-child{
+    @include font-semibold;
+}
+
+.clients-heading p:last-child{
+    @include disable-font;
+}
+
+.clients-logos{
+    height: 98px;
+    width: 1152px;
+    @include flex-center;
+}
+
+.clients-logos > img{
+    @include logo-size;
+}
+
+.features{
+    margin-top:40px;
+    width:auto;
+    @include flex-col-center;
+   
+}
+
+.features-heading{
+    text-align: center;
+}
+
+.features-heading p:first-child{
+    width:542px;
+    @include font-semibold;
+}
+
+.features-heading p:last-child{
+    margin-top:8px;
+    @include disable-font;
+}
+
+.features-points{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    // border:2px solid black; 
+}
+
+.card{
+    height: 260px;
+    width: 290px;
+    @include flex-col-center;
+}
+
+.card img{
+    @include card-img;
+    margin-bottom: 16px;
+}
+
+.card p{
+    @include font-semibold;
+    font-size:28px;
+    font-weight: 700px;
+    text-align: center;
+}
+
+.card p:last-child{
+    margin-top:8px;
+    @include disable-font;
+}
+
+.achievement{
+    height: auto;
+    width: 100%;
+    padding:0px $banner-p-l-r;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.achievement img{
+    height: 433px;
+    width: 442px;
+}
+.content .info{
+    height: 184px;
+    width: 601px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.content p:first-child{
+    @include font-semibold;
+    margin-bottom:16px;
+}
+.content p:last-child{
+    @include disable-font;
+}
+
+.content button{
+    @include btn-primary
+}
+
+.figures{
+    height: 288px;
+    padding:84px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: $bg-color;
+}
+
+.figure-content p:first-child{
+    @include font-semibold;
+}
+
+.figure-content p:nth-child(2){
+    @include font-semibold;
+    color: $primary-color;
+}
+
+.figure-content p:last-child{
+    @include disable-font
+}
+
+.figure-data{
+    
+    width: $banner-p-l-r;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.figure-data img{
+    @include logo-size;
+}
+
+.fig_1 , .fig_2{
+    height: 80px;
+    width: 540px;
+    @include flex-center
+}
+
+.fig_1 > div{
+    width:220px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.fig_1 > div > span >p:first-child{
+    @include font-semibold;
+    font-size:28px;
+}
+.fig_1 > div > span >p:last-child{
+    @include disable-font;
+    font-size:16px;
+}
+.fig_2 > div{
+    width:220px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.fig_2 > div > span >p:first-child{
+    @include font-semibold;
+    font-size:28px;
+}
+.fig_2 > div > span >p:last-child{
+    @include disable-font;
+    font-size:16px;
+}
+
+.partners{
+    height: auto;
+    width: 100%;
+    padding:32px $banner-p-l-r;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: $bg-color;
+}
+
+.partners .content{
+    width: 748px;
+}
+
+.partners .content p{
+    width:748px;
+    @include disable-font;
+}
+.partners .content p:nth-child(2){
+    font-size: 20px;
+    color:$primary-color;
+    font-weight: 700;
+}
+
+.partners .content p:last-child{
+    margin-top:4px;
+}
+
+.clients-logo{
+    height: 98px;
+    width: auto;
+    @include flex-center;
+}
+
+.clients-logo > span{
+    color:$primary-color;
+    font-weight: 700;
+}
+
+
+.branding{
+    height: auto;
+    width: 100%;
+    padding:0px $banner-p-l-r;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.branding-heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.branding-heading p:first-child{
+    @include font-semibold;
+}
+
+.branding-heading p:last-child{
+    width: 628px;
+    @include disable-font;
+    text-align: center;
+    margin-top: 16px;
+}
+
+.branding .content{
+    width: 100%;
+    padding:0px $banner-p-l-r;
+    @include flex-center;
+    margin-top:16px;
+}
+
+.imageCard{
+    height:366px;
+    width: 368px;
+    
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.imageCard .img{
+    @include imageCard;
+}
+
+.imageCard .imageBox{
+    height: 176px;
+    width: 317px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom:20px;
+    background-color: $bg-color;
+    border-radius: 10px;
+    font-weight: 600;
+    box-shadow: 5px 10px 30px gray;
+    
+}
+
+.imageCard .imageBox p:first-child{
+    width: 285px;
+    text-align: center;
+    font-size: 20px;
+    color:gray;
+}
+.imageCard .imageBox p:last-child{
+    color:$primary-color;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.intro{
+    height: 300px;
+    padding:32px $banner-p-l-r;
+    @include flex-col-center;
+    background-color: $bg-color;
+    margin-top:60px;
+}
+
+.intro p{
+    height:152px;
+    width: 887px;
+    font-size:64px;
+    text-align: center;
+    font-weight: 700;;
+}
+
+.demo-btn{
+    height: 52px;
+    width: 178px;
+    @include btn-primary;
+    font-size: 20px;
+}
+
+footer{
+    height: auto;
+    width: 100%;
+    padding:64px 165px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border:2px solid white;
+    background-color: #263238;
+    color:$text-color;
+    margin-top:-42px;
+}
+
+
+footer > div:first-child{
+    height:189px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+footer img{
+    height: 29px;
+    width: 191px;
+}
+
+.social-media{
+    height: 32px;
+    width: 176px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.social-media img{
+    height: 32px;
+    width: 32px;
+}
+
+.second-half{
+    height: 200px;
+    width: 635px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.part-1 , .part-2 {
+    height: 200px;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.part-3{
+    height: 200px;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap:24px;
+
+}
+
+.second-half .part-1 > p , .part-2 > p , .part-3 > p{
+    width: 160px;
+    @include font-semibold;
+    font-size:20px;
+    text-align: left;
+    
+}
+.links{
+    height: 148px;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+
+}
+
+.part-3 div{
+    height: 40px;
+    width: 255px;
+    background-color: gray;
+    @include flex-center;
+    padding:2px 20px;
+    border-radius:8px
+}
+.part-3 input{
+    height: 40px;
+    width: 200px;
+    padding:2px 0px;
+    border-radius: 8px;
+    // opacity: 20%;
+    color:white;
+    font-weight: 700;
+    background-color: gray;
+    outline:none;
+    border:none;
+
+}
+
+
+.part-3 img{
+    padding:auto 0px;
+    height: 18px;
+    width: 18px;
+}
+
+// .footer div:nth-child(2){
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: space-evenly;
+// }
+// .footer div:nth-child(3){
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: space-evenly;
+
+// }
+// .footer div:nth-child(4){
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: space-evenly;
+
+// }

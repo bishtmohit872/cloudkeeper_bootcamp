@@ -1,21 +1,23 @@
 var students = [];
 
-var addStudentData=()=> {
+function loadData() {
+  var storedData = localStorage.getItem('students');
+  if (storedData) {
+    students = JSON.parse(storedData);
+    updateTable();
+  }
+}
 
+function addStudentData() {
   var name = prompt("Enter student name:");
   if (!name) {
     alert("Student name cannot be empty!");
     return;
   }
-  if(+name){
-    alert("Student name cannot be number");
-    return;
-  }
 
   var marks = [];
-
   for (var i = 1; i <= 5; i++) {
-    var mark = prompt("Enter marks for Subject " + i + ":");
+    var mark = prompt("Enter marks for Subject " + i + " (0-100):");
     mark = parseFloat(mark);
 
     if (isNaN(mark) || mark < 0 || mark > 100) {
@@ -28,8 +30,8 @@ var addStudentData=()=> {
   var total = marks.reduce(function(sum, mark) {
     return sum + mark;
   }, 0);
-  var average = (total / 5).toFixed(2); 
-  console.log("hello:"+average)
+  var average = (total / 5).toFixed(2);
+
   students.push({
     name: name,
     marks: marks,
@@ -37,6 +39,7 @@ var addStudentData=()=> {
     average: average
   });
 
+  localStorage.setItem('students', JSON.stringify(students));
   updateTable();
 }
 
@@ -71,3 +74,5 @@ function updateTable() {
     tableBody.appendChild(row);
   });
 }
+
+loadData();

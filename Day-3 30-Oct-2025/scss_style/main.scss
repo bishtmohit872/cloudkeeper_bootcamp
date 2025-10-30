@@ -1,0 +1,78 @@
+@import "./partial/mixin";
+@import "./partial/variable";
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html,body{
+    @include size-full;
+}
+
+main{
+    @include size-full;
+}
+
+.container{
+    padding:10px 20px;
+    @include size-full;  
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+} 
+
+.container .info {
+    height: 50px;
+    width: 100%;
+    padding:6px 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+}
+
+.container .cards{
+    padding:20px 10px;
+    height: auto;
+    width: 100%;
+    @include flex-row-around;
+    flex-wrap: wrap;
+}
+
+.card{
+    @include product-card;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 10px gray;
+}
+
+.card img{
+    height: 200px;
+    width: 300px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card .details{
+    height: 200px;
+    width: 300px;
+    padding: 10px 10px;;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+    background-color: $primary-color;
+
+}
+
+.details p{
+    background-color: $secondary-color;
+    padding:4px 6px;
+    border-radius:10px;
+}
+

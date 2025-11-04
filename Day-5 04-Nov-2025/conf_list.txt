@@ -1,0 +1,37 @@
+-rw-r--r-- 1 root root  3444 Jul  5  2023 /etc/adduser.conf
+-rw-r--r-- 1 root root   433 Apr  8  2024 /etc/apg.conf
+-rw-r--r-- 1 root root 30571 Mar 31  2024 /etc/brltty.conf
+-rw-r--r-- 1 root root  6288 Aug  5 22:18 /etc/ca-certificates.conf
+-rw-r----- 1 root root   480 Nov  2 22:07 /etc/cma.conf
+-rw-r--r-- 1 root root  2967 Apr 12  2024 /etc/debconf.conf
+-rw-r--r-- 1 root root  1706 Jul  5  2023 /etc/deluser.conf
+-rw-r--r-- 1 root root  1429 Mar 31  2024 /etc/dhcpcd.conf
+-rw-r--r-- 1 root root   685 Apr  8  2024 /etc/e2scrub.conf
+-rw-r--r-- 1 root root    20 Apr  4  2024 /etc/fprintd.conf
+-rw-r--r-- 1 root root   694 Apr  8  2024 /etc/fuse.conf
+-rw-r--r-- 1 root root  2584 Jan 31  2024 /etc/gai.conf
+-rw-r--r-- 1 root root  4436 Oct  6  2022 /etc/hdparm.conf
+-rw-r--r-- 1 root root    92 Apr 22  2024 /etc/host.conf
+-rw-r--r-- 1 root root  1308 Mar 31  2024 /etc/kerneloops.conf
+-rw-r--r-- 1 root root    60 Oct 24 11:16 /etc/ld-mfeensrt-3.0.so.conf
+-rw-r--r-- 1 root root    34 Aug  2  2022 /etc/ld.so.conf
+-rw-r--r-- 1 root root    27 Apr  8  2024 /etc/libao.conf
+-rw-r--r-- 1 root root   191 Mar 31  2024 /etc/libaudit.conf
+-rw-r--r-- 1 root root    17 Oct 17 11:24 /etc/locale.conf
+-rw-r--r-- 1 root root   586 Apr  8  2024 /etc/logrotate.conf
+-rw-r--r-- 1 root root   744 Apr  8  2024 /etc/mke2fs.conf
+-rwxr-xr-x 1 root root   243 Oct 19  2023 /etc/nftables.conf
+-rw-r--r-- 1 root root   594 Aug  5 22:21 /etc/nsswitch.conf
+-rw-r--r-- 1 root root   552 Oct 13  2022 /etc/pam.conf
+-rw-r--r-- 1 root root  7649 Aug  5 22:21 /etc/pnm2ppa.conf
+lrwxrwxrwx 1 root root    39 Aug  5 22:18 /etc/resolv.conf -> ../run/systemd/resolve/stub-resolv.conf
+-rw-r--r-- 1 root root  1213 Mar 22  2024 /etc/rsyslog.conf
+-rw-r--r-- 1 root root  5772 Jan  7  2024 /etc/rygel.conf
+-rw-r--r-- 1 root root 10593 Mar 31  2024 /etc/sensors3.conf
+-rw-r--r-- 1 root root  4343 Apr  8  2024 /etc/sudo.conf
+-rw-r--r-- 1 root root  9804 Apr  8  2024 /etc/sudo_logsrvd.conf
+-rw-r--r-- 1 root root  2209 Mar 24  2024 /etc/sysctl.conf
+-rw-r--r-- 1 root root  1260 Jan 27  2023 /etc/ucf.conf
+-rw-r--r-- 1 root root  1523 Apr  8  2024 /etc/usb_modeswitch.conf
+lrwxrwxrwx 1 root root    16 Aug  5 22:18 /etc/vconsole.conf -> default/keyboard
+-rw-r--r-- 1 root root   681 Apr  8  2024 /etc/xattr.conf

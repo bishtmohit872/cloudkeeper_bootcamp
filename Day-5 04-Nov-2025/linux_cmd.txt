@@ -1,0 +1,75 @@
+1) 
+> ps aux --sort=%mem | head -n 2
+> kill pid
+
+2)
+sudo useradd -m Devops
+sudo usermod -aG sudo Devops
+groups Devops
+
+3)
+sudo ssh username@ip 
+scp source_path_of_file username@ip:/path_where_we_want_to_send_it
+
+4)
+ps aux | grep "java" > Q4_output.txt
+
+5)
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+ssh-copy-id username@ip
+
+now no need for password for login via ssh
+
+6)
+cat /var/log/syslog | grep "error" > errors_output.txt
+
+7)
+ls -l /etc/*.conf > conf_list.txt
+
+8)
+cut -d: -f7 /etc/passwd | uniq > shell_count.txt
+
+9)
+vi filename.txt  == to create the file in vim
+
+insert mode -> command mode -> normal mode
+
+h : left
+j : down
+k : up
+l : right
+w : move to next word
+b: move to previous word
+
+x: delete single character
+dd: remove current line
+dw : remove word from current position of cursor
+
+yy: copy current line
+yw: copy current word
+
+p : for pasting the current word / line
+
+i : insertion before current cursor position
+I : insertion started at starting of the line
+a : insertion after current cursor position
+A: insetion at ending of line
+
+u: undo
+ctrl +r : redo
+
+w: save
+q: quit
+
+wq: save and quit
+
+q! : forcefully quit
+
+
+10)
+
+reboot : init 6
+change current userpassword: sudo passwd username
+
+
+11)

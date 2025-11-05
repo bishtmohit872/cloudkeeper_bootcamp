@@ -1,15 +1,21 @@
 1) 
-> ps aux --sort=%mem | head -n 2
+> ps aux --sort=%mem | head -n 2  
 > kill pid
+
+#### by using "top" command press "m" to see process according to memeory resources
+#### by using htop " just click on memory rab"
 
 2)
 sudo useradd -m Devops
-sudo usermod -aG sudo Devops
-groups Devops
+sudo usermod -aG sudo Devops #### -a for append and -G for group in which we want to add
+groups Devops #### this command check the group of that user
 
 3)
-sudo ssh username@ip 
-scp source_path_of_file username@ip:/path_where_we_want_to_send_it
+sudo ssh username@ip   
+#### this is how connect by ssh 
+
+#### and this is for sending file by scp
+scp source_path_of_file username@ip:/path_where_we_want_to_send_it 
 
 4)
 ps aux | grep "java" > Q4_output.txt
@@ -32,6 +38,7 @@ cut -d: -f7 /etc/passwd | uniq > shell_count.txt
 9)
 vi filename.txt  == to create the file in vim
 
+#### cycle that vi follow ####
 insert mode -> command mode -> normal mode
 
 h : left
@@ -73,3 +80,25 @@ change current userpassword: sudo passwd username
 
 
 11)
+
+=====================   POSTMAN =================================
+
+==> can't install for postman because PPA for current version of ubuntu is not available yet
+CHECK THIS LINK HERE= https://launchpad.net/~tiagohillebrandt/+archive/ubuntu/postman
+
+==> sudo snap install postman
+
+======================== MYSQL ===============================
+
+==> sudo apt-get install mysql-server
+===> sudo mysql_secure_installation
+
+#### this is resettting the root password for next time login 
+===> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_new_password' 
+
+===>CREATE USER 'example_user'@'localhost' IDENTIFIED BY 'password'; #### creating the user
+
+
+Now installing GUI based MYSQL 
+
+===> sudo snap install mysql-workbench-community

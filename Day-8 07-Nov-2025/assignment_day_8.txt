@@ -1,0 +1,69 @@
+Q-1)
+Java Collections Framework (JCF) is a set of classes and interfaces that provides ready-made data structures (like lists, sets, maps, queues) and algorithms to store, manipulate, and process groups of objects efficiently.
+
+Advantages of Java Collections Framework
+
+Reusable Data Structures
+You don’t need to create your own linked lists, stacks, or hash maps — Java provides optimized implementations.
+
+Reduces Development Time
+Common operations like searching, sorting, or iterating are already implemented.
+
+Consistency & Standardization
+All collections follow a standard interface, making code easy to read, maintain, and reuse.
+
+Improved Performance
+Collection classes are highly optimized — for example, HashMap gives O(1) lookup time.
+
+Thread-safe Options
+Framework provides synchronized versions (like Vector, Hashtable, or via Collections.synchronizedList()).
+
+Powerful Utility Classes
+Collections and Arrays classes provide static methods like sort(), binarySearch(), shuffle(), etc.
+
+
+Q-2)
+
+==========> ArrayList
+
+Based on dynamic array
+
+Maintains insertion order
+
+Allows duplicates
+
+Faster in element access (because it uses index)
+
+Not synchronized (not thread-safe)
+
+Best for frequent read/search operations
+
+==========> LinkedList
+
+Based on doubly linked list
+
+Maintains insertion order
+
+Allows duplicates
+
+Slower for random access (no index lookup)
+
+Faster for insertion and deletion in the middle
+
+Not synchronized
+
+Best for frequent insert/delete operations
+
+==========> Vector
+
+Also based on dynamic array (like ArrayList)
+
+Maintains insertion order
+
+Allows duplicates
+
+Synchronized (thread-safe but slower)
+
+Legacy class (introduced in Java 1.0, later replaced by ArrayList)
+
+Used rarely now — prefer ArrayList unless synchronization is needed

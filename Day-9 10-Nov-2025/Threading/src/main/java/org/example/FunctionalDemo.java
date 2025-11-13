@@ -5,6 +5,8 @@ import java.util.Queue;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import java.util.Optional;
+
 public class FunctionalDemo {
     @FunctionalInterface
     public interface NumberRule<T>{
@@ -49,6 +51,19 @@ public class FunctionalDemo {
         }).collect(Collectors.toList());
 
         System.out.println(results);
+
+
+        //Q-3
+
+        Optional<Integer> firstSquared = results.stream()
+                .map(n -> n * n)         // square the numbers
+                .findFirst();            // get the first element (Optional)
+
+        if (firstSquared.isPresent()) {
+            System.out.println("First squared number: " + firstSquared.get());
+        } else {
+            System.out.println("No matching number found");
+        }
 
     }
 }

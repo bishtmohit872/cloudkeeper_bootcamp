@@ -13,7 +13,7 @@ const UserForm = ({ mode, show,setShow }) => {
             <div className={`${mode == "edit" ? 'h-max w-[800px] absolute z-20 bg-white rounded-lg shadow-lg' : 'h-full w-full'} ${mode == "add" ? 'block' : mode == 'edit' && show == true ? 'block' : 'hidden'} py-6 px-12 flex flex-col space-y-4 text-blue-950 z-20`}>
                 <div className="w-full flex items-center justify-between">
                     <p className="w-[180px] text-2xl font-bold p-2 text-blue-950 rounded-lg">{mode == "edit" ? "Update User" : "Add New User"} </p>
-                    <IoIosCloseCircleOutline className="size-8 cursor-pointer" onClick={handleVisiblity}/>
+                    <IoIosCloseCircleOutline className={`size-8 cursor-pointer ${mode=="add"?'hidden':'block'}`} onClick={handleVisiblity}/>
                 </div>
 
                 <div className={`${mode == "edit" ? 'w-8/8' : 'w-full'} p-4 flex flex-col items-start justify-between space-y-8 rounded-lg bg-gray-100 shadow-lg`}>

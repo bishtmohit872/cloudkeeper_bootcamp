@@ -8,13 +8,15 @@ import UserForm from "./UserForm"
 const UserList = ()=>{
 
     const [formVisiblity, setFormVisiblity] = useState(false)
+    const [userData,setUserData] = useState({})
 
-    const handleVisiblity=()=>{
+    const handleVisiblity=(user)=>{
+        setUserData(user)
         setFormVisiblity(true)
     }
 
     return (
-        <div className="h-full w-full py-8 px-20 flex flex-col items-center space-y-2 text-lg">
+        <div className="h-full w-full py-8 px-20 flex flex-col items-center space-y-2 text-lg relative">
             
             <div className="w-full flex items-end justify-between">
                 <p className="text-blue-950 font-extrabold text-2xl">Users List</p>
@@ -26,7 +28,7 @@ const UserList = ()=>{
 
             <table className="h-[600px] w-full text-center">
                 <thead className="shadow-lg">
-                    <tr className="bg-gray-200 text-left">
+                    <tr className="bg-blue-950 text-left text-white">
                         {/* <th className="border border-gray-300 px-2 py-2">Id</th>S */}
                         <th className="border border-gray-300 px-4 py-2">Full Name</th>
                         <th className="border border-gray-300 px-4 py-2">Last Name</th>
@@ -51,14 +53,14 @@ const UserList = ()=>{
                                     }
                                 </td>
                                 <td className="px-4 text-left">{user.createdAt}</td>
-                                <td className="flex items-center justify-center"><button className="cursor-pointer" onClick={handleVisiblity}><MdOutlineModeEditOutline /></button></td>
+                                <td className="flex items-center justify-center"><button className="cursor-pointer" onClick={()=>handleVisiblity(user)}><MdOutlineModeEditOutline /></button></td>
                             </tr>
                         ))
                     }
 
                 </tbody>
             </table>
-            <UserForm mode="edit" show={formVisiblity} setShow={setFormVisiblity}/>
+            <UserForm mode="edit" show={formVisiblity} setShow={setFormVisiblity} data={userData}/>
         </div>
     )
 }

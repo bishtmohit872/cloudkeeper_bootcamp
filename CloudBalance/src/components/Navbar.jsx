@@ -1,25 +1,31 @@
 import { useSelector } from "react-redux"
 import { setLoginStatus } from "../utils/Utils"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { removeLoginUser,persistor } from "../redux/store"
 
 const Navbar = ({state,setState}) =>{
 
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const loginUser = useSelector((store)=>store.loginUserInfo)
     
+
     const handleSideBarState=()=>{
         setState(!state)
     }
 
     const handleLogout=()=>{
         setLoginStatus(false)
+        dispatch(removeLoginUser())
+        persistor.purge()
         navigate("/login")
     }
 
     return(
-        <div className="h-max w-screen py-4 px-4 flex items-center justify-between shadow-md bg-color-white relative z-11">
+        <header className="h-max w-screen py-4 px-4 flex items-center justify-between shadow-md bg-color-white relative z-11">
             <div className="h-max w-[250px] flex items-end justify-between">
-                <img className="h-full w-[200px]" src="/assets/cloudbalance.png" />
+                <Link to="/dashboard"><img className="h-full w-[200px]" src="/assets/cloudbalance.png" /></Link>
                 <img className="size-6 cursor-pointer" src="/assets/menu.png" alt="menu" onClick={handleSideBarState}/>
             </div>
 
@@ -40,7 +46,7 @@ const Navbar = ({state,setState}) =>{
             </div>
 
 
-        </div>
+        </header>
     )
 }
 

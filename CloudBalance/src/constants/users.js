@@ -5,7 +5,7 @@ const users = [
     username: "amitk",
     password: "Amit@123",
     email: "amit.kumar@example.com",
-    roles: ["admin", "customer"],
+    roles: ["admin"],
     createdAt: new Date().toISOString()
   },
   {
@@ -41,7 +41,7 @@ const users = [
     username: "karanp",
     password: "Karan@123",
     email: "karan.patel@example.com",
-    roles: ["admin", "read-only"],
+    roles: ["read-only"],
     createdAt: new Date().toISOString()
   },
   {
@@ -86,7 +86,7 @@ const users = [
     username: "snehak",
     password: "Sneha@123",
     email: "sneha.kapoor@example.com",
-    roles: ["admin", "customer", "read-only"],
+    roles: ["customer", "read-only"],
     createdAt: new Date().toISOString()
   }
 ];

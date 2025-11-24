@@ -1,7 +1,8 @@
 import { LuUsers } from "react-icons/lu"
-import { BiSolidUserBadge } from "react-icons/bi"
+import { LuSquareUser } from "react-icons/lu";
 import { FaAws } from "react-icons/fa"
 import { FaMoneyBillTrendUp } from "react-icons/fa6"
+import { BsFileEarmarkBarGraph } from "react-icons/bs";
 
 const MenuList = [
     {
@@ -13,7 +14,7 @@ const MenuList = [
     {
         id:2,
         name:"Onboarding",
-        logo:<BiSolidUserBadge className="size-7"/>,
+        logo:<LuSquareUser className="size-7"/>,
         path:"/onboarding"
     },
     {
@@ -25,7 +26,7 @@ const MenuList = [
     {
         id:4,
         name:"Cost Explorer",
-        logo:<FaMoneyBillTrendUp className="size-7"/>,
+        logo:<BsFileEarmarkBarGraph className="size-7"/>,
         path:"cost-explorer"
     },
 ]

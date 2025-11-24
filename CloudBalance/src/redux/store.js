@@ -1,6 +1,9 @@
 import { createStore } from "redux";
 import {composeWithDevTools} from '@redux-devtools/extension'
 
+import { persistStore,persistReducer } from "redux-persist"
+import storage from 'redux-persist/lib/storage'
+
 const initialState = {
   loginUserInfo: {},
 };
@@ -24,8 +27,7 @@ const userReducer = (state = initialState, action) => {
     default:
       return state;
   }
-};
-
+}
 
 //action creator
 export const addLoginUser = (data)=>{
@@ -36,6 +38,15 @@ export const removeLoginUser=()=>{
   return {type:"RemoveLoginUser"}
 }
 
-const store = createStore(userReducer,composeWithDevTools());
+const persistconfig={
+  key:"root",
+  storage
+}
+
+const persistedReducer = persistReducer(persistconfig,userReducer)
+
+const store = createStore(persistedReducer,composeWithDevTools());
+
+export const persistor = persistStore(store)
 
 export default store;

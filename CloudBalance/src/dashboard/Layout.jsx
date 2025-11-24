@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Outlet } from "react-router-dom"
 import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
 import SideMenuBar from "./pages/SideMenuBar"
 
 const Layout = () =>{
@@ -11,16 +12,13 @@ const Layout = () =>{
         <div className="h-screen w-screen relative flex flex-col items-center">
             <Navbar state={openSidebar} setState={setOpenSideBar}/>
 
-            <main className="flex-1 w-screen relative">
+            <main className="h-full w-screen flex justify-between relative">
                 <SideMenuBar state={openSidebar}/>
                 <Outlet/>
             </main>
-
-            <footer>
-                <div className="h-max w-screen shadow-lg p-4 text-gray-500">
-                    <p>Cloudkeeper 2025 | All Right Reserved</p>
-                </div>
-            </footer>
+            
+            <Footer/>
+            
         </div>
     )
 }

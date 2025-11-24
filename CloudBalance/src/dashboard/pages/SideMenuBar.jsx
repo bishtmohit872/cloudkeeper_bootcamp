@@ -3,14 +3,14 @@ import MenuList from "./MenuList"
 
 const SideMenuBar =({state})=>{
     return(
-        <div className={`h-full w-2/12 p-4 transition-transform transform absolute z-30  duration-700 -translate-x-[400px] shadow-lg ${state?'translate-x-0':'-translate-x-[400px]'} bg-white`}>
+        <div className={`h-full ${state?'w-[280px]':'w-[90px]'} relative p-4 transition-all duration-400 bg-white shadow-[4px_0_6px_rgba(0,0,0,0.15)]`}>
                 
                 <div className="h-max py-4">
                     {
                         MenuList.map((menu)=>(
-                            <NavLink key={menu.id} to={menu.path} className={({isActive})=>`${isActive ? " bg-blue-950 rounded-md text-white shadow-lg":""} p-4 w-full flex items-center justify-start text-blue-950 overflow-hidden`}>
+                            <NavLink key={menu.id} to={menu.path} className={({isActive})=>`${isActive ? " bg-blue-950 rounded-md text-white shadow-lg":""} p-4 w-full flex items-center justify-start text-blue-950 overflow-hidden hover:bg-blue-900 hover:text-white rounded-lg`}>
                                 <span>{menu.logo}</span>
-                                <p className="ml-2 text-lg text-nowrap">{menu.name}</p>
+                                <p className={`ml-2 text-lg text-nowrap transition-opacity duration-300 ${state?'block opacity-100%':'opacity-0'}`}>{menu.name}</p>
                             </NavLink>
                         ))
                     }

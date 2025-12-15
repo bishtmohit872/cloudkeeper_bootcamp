@@ -14,4 +14,9 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
 
-
+  security:
+    user:
+      name: "mohit"
+      password: "mohit123"
+  jwt:
+    secretKey: "$#2cloud@#$#$@^&^&#&%#@%@#$Balance$$*!%^#*O^(^%*^&$)Project"

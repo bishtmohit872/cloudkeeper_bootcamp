@@ -7,7 +7,10 @@ import com.example.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
+
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,8 +22,14 @@ public class UserController {
 
     Map<String,Boolean> map = new HashMap<>();
 
-    @Autowired
+//    @Autowired
     UserService userService;
+
+    //contructor injection
+    public UserController(UserService userService){
+        this.userService = userService;
+    }
+
 
     @GetMapping("/all")
     public ResponseEntity<List<UserResponseDTO>> fetchUsers(){
@@ -33,7 +42,7 @@ public class UserController {
     }
 
     @PostMapping("/addUser")
-    public ResponseEntity<Object> saveUser(@RequestBody AddUserRequestDTO addUserRequestDTO){
+    public ResponseEntity<Object> addUser(@Valid @RequestBody AddUserRequestDTO addUserRequestDTO){
         userService.addUserDetails(addUserRequestDTO);
         map.clear();
         map.put("UserCreated",true);
@@ -49,9 +58,15 @@ public class UserController {
     public ResponseEntity<Object> deleteUserById(@PathVariable(name="id") Long Id){
         map.clear();
         map.put("status",true);
-        userService.deleteUserDetails(Id);
+        userService.deleteUserById(Id);
         return ResponseEntity.status(HttpStatus.OK).body(map);
     }
 
-
+    @DeleteMapping("/delete/all")
+    public ResponseEntity<Object> deleteAll(){
+        map.clear();
+        map.put("status",true);
+        userService.deleteAllUsers();
+        return ResponseEntity.status(HttpStatus.OK).body(map);
+    }
 }

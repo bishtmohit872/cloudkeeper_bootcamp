@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Builder
 @Data
@@ -13,6 +14,8 @@ public class UserResponseDTO {
     private String firstName;
     private String lastName;
     private String email;
-    private LocalDate lastLogin;
+    private String username;
+    private LocalTime lastLogin;
     private Boolean isActive;
+    private String role;
 }

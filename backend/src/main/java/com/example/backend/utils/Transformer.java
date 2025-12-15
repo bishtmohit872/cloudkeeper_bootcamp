@@ -4,16 +4,32 @@ import com.example.backend.DTO.requestDTO.AddUserRequestDTO;
 import com.example.backend.DTO.requestDTO.EditUserRequestDTO;
 import com.example.backend.DTO.responseDTO.UserResponseDTO;
 import com.example.backend.entity.UserEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 
-// this class is for creating the user via admin
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+@Component
 public class Transformer {
+
+    public static PasswordEncoder passwordEncoder;
+
+    public Transformer(PasswordEncoder passwordEncoder){
+        this.passwordEncoder = passwordEncoder;
+    }
+
+    // this method is for creating the user via admin
     public static UserEntity AddUserRequestDTOtoAddUserEntity(AddUserRequestDTO addUserRequestDTO){
         return UserEntity.builder()
                 .firstName(addUserRequestDTO.getFirstName())
                 .lastName(addUserRequestDTO.getLastName())
                 .email(addUserRequestDTO.getEmail())
-                .isActive(false)
-                .lastLogin(null)
+                .username(addUserRequestDTO.getUsername())
+                .password(passwordEncoder.encode(addUserRequestDTO.getPassword()))
+                .role(UserEntity.Role.valueOf(addUserRequestDTO.getRole()))
+                .isActive(addUserRequestDTO.getIsActive())
+                .lastLogin(addUserRequestDTO.getIsActive()? LocalTime.now():null)
                 .build();
 
     }
@@ -24,6 +40,8 @@ public class Transformer {
                 .firstName(userEntity.getFirstName())
                 .lastName(userEntity.getLastName())
                 .email(userEntity.getEmail())
+                .username(userEntity.getUsername())
+                .role(userEntity.getRole().toString())
                 .lastLogin(userEntity.getLastLogin())
                 .isActive(userEntity.getIsActive()).build();
 

@@ -36,12 +36,18 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         // It will catch the error in filter area and send it to GlocalExceptionHandling okay.
 
         try{
-
             log.info("incoming request:{}",request.getRequestURI());
 
             final String requestTokenHeader = request.getHeader("Authorization");
+            if(requestTokenHeader==null){
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                response.setContentType("application/json");
+                response.getWriter().write("{\"error\":\"Authorization token missing\"}");
+                return;
+            }
+
             if((requestTokenHeader==null) || (!requestTokenHeader.startsWith("Bearer "))){
-                filterChain.doFilter(request,response);
+//                filterChain.doFilter(request,response);
                 return;
             }
 
@@ -58,6 +64,10 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         }
         catch(Exception e){
             handlerExceptionResolver.resolveException(request,response,null,e);
+            System.out.println(e);
         }
+//        finally{
+//            filterChain.doFilter(request,response);
+//        }
     }
 }

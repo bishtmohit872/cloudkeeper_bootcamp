@@ -45,9 +45,9 @@ public class UserService {
             oldUser.setFirstName(editUserRequestDTO.getFirstName()!=null && !editUserRequestDTO.getFirstName().isEmpty() ? editUserRequestDTO.getFirstName() : oldUser.getFirstName() );
             oldUser.setLastName(editUserRequestDTO.getLastName()!=null && !editUserRequestDTO.getLastName().isEmpty() ? editUserRequestDTO.getLastName() : oldUser.getLastName());
             oldUser.setEmail(editUserRequestDTO.getEmail()!=null && !editUserRequestDTO.getEmail().isEmpty() ? editUserRequestDTO.getEmail() : oldUser.getEmail() );
-            oldUser.setIsActive(editUserRequestDTO.getIsActive());
-
+            oldUser.setRole(editUserRequestDTO.getRole()!=null && !editUserRequestDTO.getRole().isEmpty() ? UserEntity.Role.valueOf(editUserRequestDTO.getRole()) : oldUser.getRole());
             userRepository.save(oldUser);
+            System.out.println(oldUser);
             return Transformer.UserEntitytoUserResponseDTO(oldUser);
         }
         throw new ElementNotFound("No Such user found with this id:"+userId);
@@ -64,9 +64,5 @@ public class UserService {
         userRepository.deleteAll();
     }
 
-    public UserResponseDTO authenticateUser(@RequestBody LoginRequestDTO loginRequestDTO) {
-        UserEntity authUserEntity =  userRepository.findByUsername(loginRequestDTO.getUsername()).orElseThrow(()->new UsernameNotFoundException("user not found"));
-        return Transformer.UserEntitytoUserResponseDTO(authUserEntity);
-    }
 
 }

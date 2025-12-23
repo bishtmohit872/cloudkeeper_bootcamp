@@ -28,8 +28,6 @@ public class Transformer {
                 .username(addUserRequestDTO.getUsername())
                 .password(passwordEncoder.encode(addUserRequestDTO.getPassword()))
                 .role(UserEntity.Role.valueOf(addUserRequestDTO.getRole()))
-                .isActive(addUserRequestDTO.getIsActive())
-                .lastLogin(addUserRequestDTO.getIsActive()? LocalTime.now():null)
                 .build();
 
     }
@@ -42,10 +40,7 @@ public class Transformer {
                 .email(userEntity.getEmail())
                 .username(userEntity.getUsername())
                 .role(userEntity.getRole().toString())
-                .lastLogin(userEntity.getLastLogin())
-                .isActive(userEntity.getIsActive()).build();
-
-
+                .build();
     }
 
     public static UserEntity EditUserRequestDTOtoUserEntity(EditUserRequestDTO editUserRequestDTO){
@@ -54,6 +49,6 @@ public class Transformer {
                 .firstName(editUserRequestDTO.getFirstName())
                 .lastName(editUserRequestDTO.getLastName())
                 .email(editUserRequestDTO.getEmail())
-                .isActive(editUserRequestDTO.getIsActive()).build();
+                .build();
     }
 }

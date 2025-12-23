@@ -5,8 +5,10 @@ import com.example.backend.DTO.responseDTO.LoginResponseDTO;
 import com.example.backend.DTO.responseDTO.UserResponseDTO;
 import com.example.backend.entity.UserEntity;
 import com.example.backend.utils.Transformer;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseCookie;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -23,12 +25,23 @@ public class AuthService {
     private final AuthUtil authUtil;
 
     public AuthService(AuthenticationManager authenticationManager,AuthUtil authUtil){
+
         this.authenticationManager = authenticationManager;
         this.authUtil = authUtil;
     }
 
     public LoginResponseDTO login(@Valid LoginRequestDTO loginRequestDTO) throws UsernameNotFoundException {
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequestDTO.getUsername(),loginRequestDTO.getPassword()));
+        System.out.println("in authservice");
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequestDTO.getEmail(),loginRequestDTO.getPassword()));
+        System.out.println("From AuthSerice:"+authentication);
+//        above line will return below object like this
+
+//        UsernamePasswordAuthenticationToken [
+//            principal = UserEntity // this contain whole information about user which fetch from userDetailsService
+//            credentials = null
+//            authorities = [ROLE_USER, ROLE_ADMIN]
+//            authenticated = true
+//        ]
         UserEntity userDetails = (UserEntity) authentication.getPrincipal();
         String token = authUtil.generateAccessToken(userDetails);
 

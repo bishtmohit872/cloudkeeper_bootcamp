@@ -49,8 +49,8 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(map);
     }
 
-    @PutMapping("/editUser/{id}")
-    public ResponseEntity<UserResponseDTO> editUser(@RequestBody EditUserRequestDTO editUserRequestDTO, @PathVariable(name="id") Long userId){
+    @PatchMapping("/editUser/{id}")
+    public ResponseEntity<UserResponseDTO> editUser(@Valid @RequestBody EditUserRequestDTO editUserRequestDTO, @PathVariable(name="id") Long userId){
         return new ResponseEntity<>(userService.editUserDetails(editUserRequestDTO,userId),HttpStatus.OK);
     }
 
@@ -62,6 +62,7 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(map);
     }
 
+
     @DeleteMapping("/delete/all")
     public ResponseEntity<Object> deleteAll(){
         map.clear();
@@ -69,4 +70,6 @@ public class UserController {
         userService.deleteAllUsers();
         return ResponseEntity.status(HttpStatus.OK).body(map);
     }
+
+
 }

@@ -35,14 +35,11 @@ public class AddUserRequestDTO {
     @Email(message="Email format is not valid")
     private String email;
 
-    @Size(min=4,max=15, message = "userName length should be between 4 and 15 characters")
+    @Size(min=4, message = "userName length should be between 4 and 15 characters")
     private String username;
 
     @Size(min=4, max=15, message = "password length should be between 4 and 15 atleast")
     private String password;
-
-    @NotNull
-    private Boolean isActive;
 
     @NotNull
     private String role;

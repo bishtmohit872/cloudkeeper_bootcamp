@@ -6,12 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -37,26 +34,24 @@ public class UserEntity implements UserDetails {
     private String username;
 
     private String password;
-
-    private LocalTime lastLogin;
-    private Boolean isActive;
-
+    
     @ManyToMany(mappedBy = "users")
     private List<AwsAccountEntity> awsAccount;
 
-
     public enum Role{
-        Admin,Customer,ReadOnly,
+        Admin,Customer,ReadOnly;
+
     }
 
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    private LocalDateTime timestamp;
-
+    //As springboot understand authority as a GrantedAuthority
+    //That why we make GrantedAuthority Object
+    // Proper equals(), hashCode(), toString() implemented here in "new SimpleGrantedAuthority"
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return List.of(new SimpleGrantedAuthority("ROLE_"+role.name()));
     }
 
 

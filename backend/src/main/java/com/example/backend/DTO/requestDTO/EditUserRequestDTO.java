@@ -1,5 +1,7 @@
 package com.example.backend.DTO.requestDTO;
+import com.example.backend.entity.UserEntity;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,6 +26,7 @@ public class EditUserRequestDTO {
     @Email(message="Email format is not valid")
     private String email;
 
-    private Boolean isActive;
+    @NotNull(message="Specify the role of current user")
+    private String role;
 
 }

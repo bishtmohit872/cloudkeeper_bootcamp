@@ -38,36 +38,33 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         try{
             log.info("incoming request:{}",request.getRequestURI());
 
+//           if(request.getServletPath().equals("/auth/login")){
+//                filterChain.doFilter(request,response);
+//                return;
+//            }
             final String requestTokenHeader = request.getHeader("Authorization");
-            if(requestTokenHeader==null){
-                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                response.setContentType("application/json");
-                response.getWriter().write("{\"error\":\"Authorization token missing\"}");
-                return;
-            }
+
 
             if((requestTokenHeader==null) || (!requestTokenHeader.startsWith("Bearer "))){
-//                filterChain.doFilter(request,response);
+                filterChain.doFilter(request,response);
                 return;
             }
 
             String token = requestTokenHeader.split("Bearer ")[1];
-            String username = authUtil.getUsernameFromToken(token);
+            String email = authUtil.getEmailFromToken(token);
+            System.out.println("jwtauthfilter:"+email);
+            if((email!=null) && SecurityContextHolder.getContext().getAuthentication() ==null){
+                UserEntity user = userRepository.findByEmail(email).orElseThrow();
 
-            if((username!=null) && SecurityContextHolder.getContext().getAuthentication() ==null){
-                UserEntity user = userRepository.findByUsername(username).orElseThrow();
-
-                UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(user,null,null);
+                UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(user,null,user.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
             }
             filterChain.doFilter(request,response);
         }
         catch(Exception e){
             handlerExceptionResolver.resolveException(request,response,null,e);
-            System.out.println(e);
+            System.out.println("jwtauthfilter:"+e);
         }
-//        finally{
-//            filterChain.doFilter(request,response);
-//        }
+
     }
 }
